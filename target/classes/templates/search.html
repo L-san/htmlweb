@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<!-- Thymeleaf Namespace -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Парсинг web-страниц</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<form action="#" th:action="@{/show}" th:object="${form}"
+      method="post">
+    <fieldset>
+        <table>
+            <thead>
+            <tr>
+                <th>Введите ссылку:</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="page, itemStat : *{pages}">
+                    <td>
+                        <input th:field="*{pages[__${itemStat.index}__].url}" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" id="submitButton" th:value="Найти">
+    </fieldset>
+
+</form>
+</body>
+</html>

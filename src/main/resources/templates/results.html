@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- Thymeleaf Namespace -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>405</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th> Слово </th>
+                <th>    Число повторений </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${words.empty}">
+            <td colspan="2">
+                Нет слов на странице...
+            </td>
+        </tr>
+        <tr th:each = "word : ${words}">
+            <td><span th:text="${word.value}"> Слово </span></td>
+            <td><span th:text="${word.count}">    Число повторений на странице </span></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
